@@ -7,8 +7,8 @@ const StyledLink = styled(Link)`
   color: inherit;
 `;
 
-const PageA: FC = () => {
-  return <StyledLink to='/b'>A</StyledLink>;
+const PageC: FC = () => {
+  return <StyledLink to='/'>C</StyledLink>;
 };
 
-export default PageA;
+export default PageC;

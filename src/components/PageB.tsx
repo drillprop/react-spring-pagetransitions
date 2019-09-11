@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
 `;
 
 const PageB: FC = () => {
-  return <StyledLink to='/'>A</StyledLink>;
+  return <StyledLink to='/c'>B</StyledLink>;
 };
 
 export default PageB;

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { animated, useTransition } from 'react-spring';
+import styled from 'styled-components';
+import useRouter from '../hooks/useRouter';
+import GlobalStyle from './GlobalStyle';
 import PageA from './PageA';
 import PageB from './PageB';
-import styled from 'styled-components';
-import GlobalStyle from './GlobalStyle';
-import { useTransition, animated } from 'react-spring';
-import useRouter from '../hooks/useRouter';
+import PageC from './PageC';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -32,6 +33,7 @@ const App: React.FC = () => {
             <Switch location={item}>
               <Route exact path='/' component={PageA} />
               <Route path='/b' component={PageB} />
+              <Route path='/c' component={PageC} />
             </Switch>
           </animated.div>
         ))}
