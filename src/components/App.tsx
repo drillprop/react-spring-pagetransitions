@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PageA from './PageA';
 import PageB from './PageB';
 import styled from 'styled-components';
 import GlobalStyle from './GlobalStyle';
+import { useTransition, animated } from 'react-spring';
+import useRouter from '../hooks/useRouter';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -15,14 +17,24 @@ const Wrapper = styled.div`
 `;
 
 const App: React.FC = () => {
+  const { location } = useRouter();
+  const transitions = useTransition(location, location.pathname, {
+    from: { position: 'absolute', opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 }
+  });
   return (
     <>
       <GlobalStyle />
       <Wrapper>
-        <Router>
-          <Route exact path='/' component={PageA} />
-          <Route exact path='/b' component={PageB} />
-        </Router>
+        {transitions.map(({ item, key, props }) => (
+          <animated.div key={key} style={props}>
+            <Switch location={item}>
+              <Route exact path='/' component={PageA} />
+              <Route path='/b' component={PageB} />
+            </Switch>
+          </animated.div>
+        ))}
       </Wrapper>
     </>
   );
