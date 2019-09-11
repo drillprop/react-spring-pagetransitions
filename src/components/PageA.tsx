@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const PageA = () => {
+const PageA: FC = () => {
   return <div>Page A</div>;
 };
 
