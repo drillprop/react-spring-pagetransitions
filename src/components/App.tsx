@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, match } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useTransition } from 'react-spring';
 import styled from 'styled-components';
 import useRouter from '../hooks/useRouter';
@@ -31,13 +31,13 @@ const App: React.FC = () => {
         {transitions.map(({ item, key, props }) => (
           <Switch location={item} key={key}>
             <Route exact path='/'>
-              {() => <PageA animationProps={props} />}
+              <PageA animationProps={props} />
             </Route>
             <Route exact path='/b'>
-              {() => <PageB animationProps={props} />}
+              <PageB animationProps={props} />
             </Route>
             <Route exact path='/c'>
-              {() => <PageC animationProps={props} />}
+              <PageC animationProps={props} />
             </Route>
           </Switch>
         ))}
