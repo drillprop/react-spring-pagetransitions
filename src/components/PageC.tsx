@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { StyledWrapper, StyledLink } from '../elements/pageStyles';
+import { AnimatedStyledWrapper, StyledLink } from '../elements/pageStyles';
 
 const PageC: FC = () => {
   return (
-    <StyledWrapper>
+    <AnimatedStyledWrapper>
       <StyledLink to='/'>C</StyledLink>
-    </StyledWrapper>
+    </AnimatedStyledWrapper>
   );
 };
 

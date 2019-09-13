@@ -6,4 +6,4 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
-export const StyledWrapper = styled(animated.div)``;
+export const AnimatedStyledWrapper = styled(animated.div)``;
