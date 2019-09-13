@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { StyledLink, AnimatedStyledWrapper } from '../elements/pageStyles';
 
-const PageB: FC = () => {
+const PageB: FC<{ animationProps: any }> = ({ animationProps }) => {
   return (
-    <AnimatedStyledWrapper>
+    <AnimatedStyledWrapper style={animationProps}>
       <StyledLink to='/c'>B</StyledLink>
     </AnimatedStyledWrapper>
   );

@@ -1,12 +1,14 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { animated, useTransition } from 'react-spring';
+import { Route, Switch, match } from 'react-router-dom';
+import { useTransition } from 'react-spring';
 import styled from 'styled-components';
 import useRouter from '../hooks/useRouter';
 import GlobalStyle from './GlobalStyle';
 import PageA from './PageA';
 import PageB from './PageB';
 import PageC from './PageC';
+import { History, Location } from 'history';
+import { StaticContext } from 'react-router';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -16,6 +18,13 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+type RouterProps = {
+  history: History<any>;
+  location: Location<any>;
+  match: match<any>;
+  staticContext?: StaticContext | undefined;
+};
 
 const App: React.FC = () => {
   const { location } = useRouter();
@@ -29,13 +38,23 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Wrapper>
         {transitions.map(({ item, key, props }) => (
-          <animated.div key={key} style={props}>
-            <Switch location={item}>
-              <Route exact path='/' component={PageA} />
-              <Route path='/b' component={PageB} />
-              <Route path='/c' component={PageC} />
-            </Switch>
-          </animated.div>
+          <Switch location={item} key={key}>
+            <Route exact path='/'>
+              {(otherProps: RouterProps) => (
+                <PageA animationProps={props} {...otherProps} />
+              )}
+            </Route>
+            <Route exact path='/b'>
+              {(otherProps: RouterProps) => (
+                <PageB animationProps={props} {...otherProps} />
+              )}
+            </Route>
+            <Route exact path='/c'>
+              {(otherProps: RouterProps) => (
+                <PageC animationProps={props} {...otherProps} />
+              )}
+            </Route>
+          </Switch>
         ))}
       </Wrapper>
     </>
