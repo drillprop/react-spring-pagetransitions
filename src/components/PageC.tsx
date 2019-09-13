@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`;
+import { StyledWrapper, StyledLink } from '../elements/pageStyles';
 
 const PageC: FC = () => {
-  return <StyledLink to='/'>C</StyledLink>;
+  return (
+    <StyledWrapper>
+      <StyledLink to='/'>C</StyledLink>
+    </StyledWrapper>
+  );
 };
 
 export default PageC;
