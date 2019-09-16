@@ -30,15 +30,21 @@ const App: React.FC = () => {
       <Wrapper>
         {transitions.map(({ item, key, props }) => (
           <Switch location={item} key={key}>
-            <Route exact path='/'>
-              <PageA animationProps={props} />
-            </Route>
-            <Route exact path='/b'>
-              <PageB animationProps={props} />
-            </Route>
-            <Route exact path='/c'>
-              <PageC animationProps={props} />
-            </Route>
+            <Route
+              exact
+              path='/'
+              render={() => <PageA animationProps={props} />}
+            />
+            <Route
+              exact
+              path='/b'
+              render={() => <PageB animationProps={props} />}
+            />
+            <Route
+              exact
+              path='/c'
+              render={() => <PageC animationProps={props} />}
+            />
           </Switch>
         ))}
       </Wrapper>
