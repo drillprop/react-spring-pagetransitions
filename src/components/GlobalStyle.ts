@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: bold;
     margin: 0
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export default GlobalStyle;
