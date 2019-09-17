@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 90px;
-  color: inherit;
+  color: white;
 `;
 export const AnimatedStyledWrapper = styled(animated.div)`
   width: 100vw;
+  background-color: black;
   height: 100vh;
   display: grid;
   place-items: center;

@@ -10,13 +10,15 @@ import PageC from './PageC';
 const App: React.FC = () => {
   const { location } = useRouter();
 
-  const transition: any = {
-    from: { position: 'absolute', opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 }
-  };
-
-  const transitions = useTransition(location, location.pathname, transition);
+  const transitions = useTransition(location, location.pathname, {
+    from: {
+      position: 'absolute',
+      clipPath: 'circle(0%)',
+      opacity: 0
+    },
+    enter: [{ opacity: 1 }, { clipPath: 'circle(100%)' }],
+    leave: [{ clipPath: 'circle(0%)' }]
+  });
   return (
     <>
       <GlobalStyle />
