@@ -5,7 +5,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    margin: 0
+    margin: 0;
+    background-color: black;
   }
   * {
     box-sizing: border-box;
