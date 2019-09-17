@@ -13,11 +13,16 @@ const App: React.FC = () => {
   const transitions = useTransition(location, location.pathname, {
     from: {
       position: 'absolute',
-      clipPath: 'circle(0%)',
+      clipPath: `circle(0% at -5%)`,
       opacity: 0
     },
-    enter: [{ opacity: 1 }, { clipPath: 'circle(100%)' }],
-    leave: [{ clipPath: 'circle(0%)' }]
+    enter: [
+      { clipPath: `circle(5% at 10%)` },
+      { opacity: 1 },
+      { clipPath: 'circle(5% at 50%)' },
+      { clipPath: 'circle(100% at 50%)' }
+    ],
+    leave: [{ clipPath: 'circle(0% at 50%)' }, { opacity: 0 }]
   });
   return (
     <>
