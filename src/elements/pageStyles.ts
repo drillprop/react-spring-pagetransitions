@@ -8,6 +8,8 @@ export const StyledLink = styled(Link)`
   color: black;
 `;
 export const AnimatedStyledWrapper = styled(animated.div)`
+  backface-visibility: hidden; /* removes ugly white outline on clip-path */
+  padding: 2px;
   width: 100vw;
   background-color: white;
   height: 100vh;
